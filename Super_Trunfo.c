@@ -9,6 +9,10 @@ typedef struct {
     float areaemkm2;
     float pib;
     int numerodepontosturisticos;
+     float densidade_populacional;
+    float pib_per_capita;
+
+
    
 } Carta;
 
@@ -36,6 +40,10 @@ void lerCarta(Carta *c) {
 
     printf("digite o numero de pontos turistico: \n");
     scanf("%d", &c->numerodepontosturisticos);
+
+    c->densidade_populacional = c->populacao / c->areaemkm2;
+    c->pib_per_capita = c->pib / c->populacao;
+
 }
 
 void exibirCarta(Carta c, int numero) {
@@ -48,6 +56,8 @@ void exibirCarta(Carta c, int numero) {
     printf("Área em km²: %.2f\n", c.areaemkm2);
     printf("PIB: %.2f\n", c.pib);
     printf("Número de pontos turísticos: %d\n", c.numerodepontosturisticos);
+    printf("A densidade populacional é: %.2f\n", c.densidade_populacional);
+    printf("O pib per capita é: %e\n", c.pib_per_capita);
    
 }
 
